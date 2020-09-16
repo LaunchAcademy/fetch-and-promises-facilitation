@@ -1,17 +1,4 @@
-Agenda 
-- go over basic JS 
-- use the ziteboard for examples of easy abstraction of fetch
-- async pizza example
-- draw out http request and response in fetch versus html 
-- start showing code (still no promises) and glaze over .then 
-- finish using fetch code
-
-- use the Readme text below on promises
-- then dig into promises in `promises.js`
-
-
-Async 
-
+Async Javascript
 - fetch requests take time 
 - imagine ordering a pizza, its gonna take at least 15mins. If we didn’t have async programming. We would have to order our pizza and then do nothing else for 15mins 
 - WITH it, we can order our pizza (order => fetch) and then also read a book or play video games while we wait. maybe even clean up and decorate. 

@@ -1,12 +1,5 @@
-// let stuffTag = document.getElementById('stuff')
-// stuff.innerHTML += `<li> something </li>`
-
-const randomFunction = () => {
-
-}
-
-const fetchFunction = () => {
-  fetch('http://localhost:4567/aragorn.json')
+const fetchPizzaFunction = () => {
+  fetch('http://localhost:4567/pizza.json')
     .then((response) => {
       if (response.ok || response.status === 200) {
         return response;
@@ -19,9 +12,8 @@ const fetchFunction = () => {
     .then((response) => {
       return response.json()
     })
-    .then((parsedResponseData) => {
-      console.log("finishing the fetch request")
-      console.log(parsedResponseData)
+    .then((parsedPizzaData) => {
+      console.log(parsedPizzaData)
     })
     .catch((error) => {
       console.log("THINGS BROKE DUDE")
@@ -29,12 +21,5 @@ const fetchFunction = () => {
     })
 }
 
-stuffDiv = document.getElementById("stuff")
-stuffDiv.addEventListener("click", fetchFunction, false);
-
-
-fetch => phone call 
-
-preparing the pizza is all of the stuff on the backend Server.rb 
-
-decorate our house 
+pizzaFetcherDiv = document.getElementById("pizza-fetcher-div")
+pizzaFetcherDiv.addEventListener("click", fetchPizzaFunction, false);
