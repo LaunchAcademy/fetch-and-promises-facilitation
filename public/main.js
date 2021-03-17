@@ -1,25 +1,21 @@
-const fetchPizzaFunction = () => {
-  fetch('http://localhost:4567/pizza.json')
-    .then((response) => {
-      if (response.ok || response.status === 200) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw (error);
-      }
-    })
-    .then((response) => {
-      return response.json()
-    })
-    .then((parsedPizzaData) => {
-      console.log(parsedPizzaData)
-    })
-    .catch((error) => {
-      console.log("THINGS BROKE DUDE")
-      console.log(error)
-    })
+// // debugger
+
+// Promise = just a wrapper that contains the data we want 
+
+const fetchPizza = async () => {
+  try {
+    
+    const response = await fetch("/pizza.json")
+
+    const pizzaResponseBody = await response.json()
+
+    pizzaFetcherDiv = document.getElementById("pizza-fetcher-div")
+
+    console.log("responseBody:", responseBody)
+  } catch(err) {
+    console.error("Error in fetch!")
+  }
 }
 
 pizzaFetcherDiv = document.getElementById("pizza-fetcher-div")
-pizzaFetcherDiv.addEventListener("click", fetchPizzaFunction, false);
+pizzaFetcherDiv.addEventListener("click", fetchPizza, false);
