@@ -1,8 +1,11 @@
+
+// ### Custom Example 
+
 // reading a file takes time. 
 
 const whenDone = (err, data) => {
   if (err) {
-   return "something went wrong!"
+    return "something went wrong!"
   } else {
     console.log("It worked, here is your tweet data!")
     return data
@@ -12,6 +15,31 @@ const whenDone = (err, data) => {
 parsed_tweets = fs.readFile("tweets.json", 'utf8', whenDone)
 console.log(parsed_tweets)
 
+// ### Example like reading
+
+
+let read = (filename) => {
+
+  return new Promise((resolve, reject) => {
+
+    fs.readFile(filename, 'utf8', (err, data) => {
+      if (err) {
+        reject((err))
+      } else {
+        resolve(data)
+      }
+    })
+  })
+}
+
+
+const jsonData = await read("twitterData.json")
+
+let parsedData = JSON.parse(jsonData);
+
+console.log(parsedData);
+
+// lulz I just bought a frappaucino her dur
 
 
 
@@ -42,30 +70,3 @@ console.log(parsed_tweets)
 // }
 
 // const asyncData = await doSomethingAsynchronously()
-
-
-
-
-let read = (filename) => {
-
-  return new Promise((resolve, reject) => {  
-
-    fs.readFile(filename, 'utf8', (err, data) => {
-      if (err) {
-        reject((err))
-      } else {
-        resolve(data)
-      }
-    })
-  })
-}
-
-// new Promise(callbackFunction(resolve, reject))
-
-const jsonData = await read("twitterData.json")
-
-let parsedData = JSON.parse(jsonData);
-
-console.log(parsedData);
-
-// lulz I just bought a frappaucino her dur

@@ -1,21 +1,24 @@
-// // debugger
 
-// Promise = just a wrapper that contains the data we want 
+// debugger
 
 const fetchPizza = async () => {
   try {
-    
-    const response = await fetch("/pizza.json")
+    const pizzaResponse = await fetch("/api/v1/pizzassss")
+    if (!pizzaResponse.ok) {
+      const errorMessage = `${pizzaResponse.status} you got a 500 or 400`
+      const errorObject = new Error(errorMessage)
+      throw(errorObject)
+    }
 
-    const pizzaResponseBody = await response.json()
-
-    pizzaFetcherDiv = document.getElementById("pizza-fetcher-div")
-
-    console.log("responseBody:", responseBody)
-  } catch(err) {
-    console.error("Error in fetch!")
+    const parsedPizzaString = await pizzaResponse.json()
+    console.log(parsedPizzaString)
+  } catch(thrownErrorObject) {
+    console.log(thrownErrorObject)
   }
 }
 
+
+// fetchPizza()
+
 pizzaFetcherDiv = document.getElementById("pizza-fetcher-div")
-pizzaFetcherDiv.addEventListener("click", fetchPizza, false);
+pizzaFetcherDiv.addEventListener("click", fetchPizza, false); 

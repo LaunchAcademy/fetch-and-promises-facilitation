@@ -10,19 +10,9 @@ get "/" do
   erb :index
 end
 
-
-
-
-
-
-
-
-
-
-
-get "/pizza.json" do
+get "/api/v1/pizza" do
   pizza = "tasty pepperoni" 
-
+  # binding.pry
   # EFFECTIVELY WHAT IS HAPPENING
   # prepare a response for our fetch request
   # response = Response.new
@@ -32,11 +22,5 @@ get "/pizza.json" do
 
   # return response # goes to the .then of the fetch request
   content_type(:json)
-  # binding.pry
   return pizza.to_json
 end
-
-get "/pizza.json" do
-  return "pepperoni".to_json
-end
-
